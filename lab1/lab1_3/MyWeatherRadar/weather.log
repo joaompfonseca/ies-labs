@@ -1,0 +1,11 @@
+2022-09-23 23:39:02 INFO  Requested weather forecast for city id 1010500
+2022-09-23 23:39:04 INFO  API call execute
+2022-09-23 23:39:04 INFO  API call success
+2022-09-23 23:39:04 INFO  Showing weather forecast
+2022-09-23 23:39:26 INFO  Requested weather forecast for city id 1010500
+2022-09-23 23:39:26 DEBUG Getting retrofit instance
+2022-09-23 23:39:27 DEBUG Creating typed interface
+2022-09-23 23:39:27 DEBUG Preparing call to API
+2022-09-23 23:39:27 INFO  API call execute
+2022-09-23 23:39:27 INFO  API call success
+2022-09-23 23:39:27 INFO  Showing weather forecast

@@ -1,0 +1,40 @@
+2022-09-28 14:32:15 INFO  Selected city Aveiro
+2022-09-28 14:32:15 DEBUG Getting retrofit instance
+2022-09-28 14:32:16 DEBUG Creating typed interface
+2022-09-28 14:32:16 DEBUG Preparing call to API
+2022-09-28 14:32:16 INFO  API call execute
+2022-09-28 14:32:17 INFO  API call success
+2022-09-28 14:32:17 DEBUG Preparing call to API
+2022-09-28 14:32:17 INFO  API call execute
+2022-09-28 14:32:17 INFO  API call success
+2022-09-28 14:32:17 INFO  Showing weather forecast
+2022-09-28 14:32:49 INFO  Selected city Lisboa
+2022-09-28 14:32:49 DEBUG Getting retrofit instance
+2022-09-28 14:32:50 DEBUG Creating typed interface
+2022-09-28 14:32:50 DEBUG Preparing call to API
+2022-09-28 14:32:50 INFO  API call execute
+2022-09-28 14:32:51 INFO  API call success
+2022-09-28 14:32:51 DEBUG Preparing call to API
+2022-09-28 14:32:51 INFO  API call execute
+2022-09-28 14:32:51 INFO  API call success
+2022-09-28 14:32:51 INFO  Showing weather forecast
+2022-09-28 14:40:12 INFO  Selected city Lisboa
+2022-09-28 14:40:13 DEBUG Getting retrofit instance
+2022-09-28 14:40:14 DEBUG Creating typed interface
+2022-09-28 14:40:14 DEBUG Preparing call to API
+2022-09-28 14:40:14 INFO  API call execute
+2022-09-28 14:40:14 INFO  API call success
+2022-09-28 14:40:14 DEBUG Preparing call to API
+2022-09-28 14:40:14 INFO  API call execute
+2022-09-28 14:40:14 INFO  API call success
+2022-09-28 14:40:14 INFO  Showing weather forecast
+2022-09-28 23:15:22 INFO  Selected city Lisboa
+2022-09-28 23:15:22 DEBUG Getting retrofit instance
+2022-09-28 23:15:23 DEBUG Creating typed interface
+2022-09-28 23:15:23 DEBUG Preparing call to API
+2022-09-28 23:15:23 INFO  API call execute
+2022-09-28 23:15:23 INFO  API call success
+2022-09-28 23:15:23 DEBUG Preparing call to API
+2022-09-28 23:15:23 INFO  API call execute
+2022-09-28 23:15:23 INFO  API call success
+2022-09-28 23:15:23 INFO  Showing weather forecast
