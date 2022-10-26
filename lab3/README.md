@@ -227,7 +227,8 @@ Para adicionar um novo atributo (phone), apenas foi necessário modificar a clas
 
 Executar servidor MySQL num Docker Container:
 `docker run --name mysql5 -e MYSQL_ROOT_PASSWORD=secret1 -e MYSQL_DATABASE=demo -e MYSQL_USER=demo -e MYSQL_PASSWORD=secret2 -p 33060:3306 -d mysql/mysql-server:5.7`
-    Legenda: `-e`: variável de ambiente; `-p`: mapeamento de porto host:container; `-d`: detached, executa no background.
+
+Legenda: `-e`: variável de ambiente; `-p`: mapeamento de porto host:container; `-d`: detached, executa no background.
 
 ### b)
 
@@ -347,8 +348,7 @@ Para utilizarmos `ErrorDetails`, criamos uma nova classe que lide com todas as e
 
 ### f) 
 
-**application.properties**
-Permite configurar a ligação à base de dados MySQL e manter o esquema da mesma atualizado (conforme o modelo).
+**application.properties**: Permite configurar a ligação à base de dados MySQL e manter o esquema da mesma atualizado (conforme o modelo).
 
 ```
     # MySQL
@@ -586,38 +586,37 @@ Criaram-se as entidades Movie e Quote.
 
 Dockerizar a App:
  1. Criar uma rede no Docker para permitir a comunicação entre a App e a BD.
-        `docker network create movie-quotes-net` - 
+        docker network create movie-quotes-net 
  2. Executar o MySQL Server na rede criada no Docker.
-        `docker run --name movie-quotes-db --network movie-quotes-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=movie-quotes -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -p 3306:3306 -d mysql/mysql-server:5.7`
+        docker run --name movie-quotes-db --network movie-quotes-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=movie-quotes -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -p 3306:3306 -d mysql/mysql-server:5.7
  3. Atualizar o ficheiro `application.properties`.
-        ```
-            spring.datasource.url=jdbc:mysql://movie-quotes-db:3306/movie-quotes
-            spring.datasource.username=admin
-            spring.datasource.password=admin
-        ```
+
+        spring.datasource.url=jdbc:mysql://movie-quotes-db:3306/movie-quotes
+        spring.datasource.username=admin
+        spring.datasource.password=admin
+
  4. Eliminar teste de `src/test/java/ies/lab3/e3/moviequotes/ApplicationTests.java`.
  5. Executar a fase `package` do Maven.
-        `mvn clean package`
+        mvn clean package
  6. Criar um Dockerfile.
-        ```
-            FROM eclipse-temurin:11-jdk-alpine
-            VOLUME /tmp
-            COPY target/*.jar app.jar
-            COPY src/main/resources/static src/main/resources/static
-            ENTRYPOINT ["java","-jar","/app.jar"]
-        ```
+
+        FROM eclipse-temurin:11-jdk-alpine
+        VOLUME /tmp
+        COPY target/*.jar app.jar
+        COPY src/main/resources/static src/main/resources/static
+        ENTRYPOINT ["java","-jar","/app.jar"]
+
  6. Construir a imagem da App (utiliza Dockerfile).
-        `docker build -t movie-quotes-image .`
+        docker build -t movie-quotes-image .
  7. Executar a App na rede criada no Docker.
-        `docker run --network movie-quotes-net --name movie-quotes-app -p 8080:8080 -d movie-quotes-image`
+        docker run --network movie-quotes-net --name movie-quotes-app -p 8080:8080 -d movie-quotes-image
 
 Para configurar logo tudo relacionado ao Docker:
-```
-    docker network create movie-quotes-net
-    docker run --name movie-quotes-db --network movie-quotes-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=movie-quotes -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -p 3306:3306 -d mysql/mysql-server:5.7
-    docker build -t movie-quotes-image .
-    docker run --network movie-quotes-net --name movie-quotes-app -p 8080:8080 -d movie-quotes-image
-```
+
+        docker network create movie-quotes-net
+        docker run --name movie-quotes-db --network movie-quotes-net -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=movie-quotes -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -p 3306:3306 -d mysql/mysql-server:5.7
+        docker build -t movie-quotes-image .
+        docker run --network movie-quotes-net --name movie-quotes-app -p 8080:8080 -d movie-quotes-image
 
 ## Review Questions
 
@@ -638,12 +637,19 @@ Para configurar logo tudo relacionado ao Docker:
 ![image info](resources/ies_lab3_3_diagram.png)
 
 **Postman**: Progama utilizado para efetuar os pedidos HTTP.
+
 **Controller Layer**: Inclui o controlador `MovieQuotesController` anotada com `@RestController`. Apenas invoca métodos da Service Layer (não possui lógica).
+
 **DTOs**: Modelação dos dados que são recebidos/enviados pela API em formato JSON. Permitem ocultar atributos / ocultar a estrutura das classes `@Entity` da Domain Layer.
+
 **Service Layer**: Disponibiliza o serviço `MovieQuotesService` anotado com `@Service`. Referencia os repositorios dos movies e das quotes, fazendo de ponte entre a Controller Layer e a Data Access Layer. Inclui toda a lógica do negócio da aplicação.
+
 **Data Access Layer**: Engloba as seguintes camadas:
+
   - **Repository Layer**: Fornece um Data Access Object (ou repository) para cada uma das entidades da Domain Layer. Implementa métodos que permitem a interação com os dados na base de dados, modelados pelas entidades.
+
   - **Domain Layer**: Modelação dos dados que são armazenados na base de dados.
+
 **Database**: Foi utilizada a base de dados MySQL Server para garantir a persistência dos dados.
 
 ### C)
