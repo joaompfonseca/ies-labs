@@ -3,8 +3,6 @@ package ies.lab3.e3.moviequotes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.List;
-
 @SpringBootApplication
 public class Application {
 

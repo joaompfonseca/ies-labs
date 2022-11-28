@@ -1,4 +1,4 @@
-package ies.lab3.e3.moviequotes.utils;
+package ies.lab3.e3.moviequotes.util;
 
 import ies.lab3.e3.moviequotes.model.Movie;
 import ies.lab3.e3.moviequotes.model.Quote;
@@ -31,7 +31,8 @@ public class ImportData {
                 }
                 Integer index = auxAddedMovies.get(title);
                 Movie movie = movies.get(index);
-                movies.get(index).addQuote(new Quote(content, movie));
+                List<Quote> quotes = movies.get(index).getQuotes();
+                quotes.add(new Quote(content, movie));
             }
         } catch (FileNotFoundException e) {
             System.err.println("File " + filename + " was not found.");
